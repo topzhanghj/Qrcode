@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QRcode</title>
+</head>
+<body>
+  <h1>扫码方式判断：</h1>
+  <h2 style="color: red;" id="type">未知方式</h2>
+  <h5>具体user-agent：</h5>
+  <h5 id="ua_detail"></h5>
+</body>
+<script>
+    var type =  document.getElementById("type")
+    var ua_detail =  document.getElementById("ua_detail")
+    let ua =navigator.userAgent.toUpperCase();
+    ua_detail.innerText = ua
+    if (ua.indexOf("MICROMESSENGER")!=-1) {
+     type.innerText = '微信扫码'
+    } else if (ua.indexOf("ALIPAYCLIENT")!=-1){
+      type.innerText = '支付宝扫码'
+    } else {
+      type.innerText = '未知扫码方式'
+    }
+</script>
+</html>
